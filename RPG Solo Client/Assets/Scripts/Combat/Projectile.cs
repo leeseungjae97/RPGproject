@@ -36,7 +36,6 @@ namespace RPG.Combat
         {
             this.target = target;
             this.damage = damage;
-
             Destroy(gameObject, maxLifeTime);
         }
 

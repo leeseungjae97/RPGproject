@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &6183127105734366413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3565618819720395313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd11e3798c48f7a45b45e5d026bc7cac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startinglevel: 1
+  characterClass: 3
 --- !u!1001 &2167482440068901830
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -72,6 +86,22 @@ PrefabInstance:
       propertyPath: chaseDistance
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 5690833133133257728, guid: 97794e8f32d9d574c8ed85db378e8c47,
+        type: 3}
+      propertyPath: defaultWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: e24424a2c9b854d44bdca41b0ac2ed0c,
+        type: 2}
+    - target: {fileID: 5690833133133257728, guid: 97794e8f32d9d574c8ed85db378e8c47,
+        type: 3}
+      propertyPath: rightHandTransform
+      value: 
+      objectReference: {fileID: 8303796431164988065}
+    - target: {fileID: 5690833133133257728, guid: 97794e8f32d9d574c8ed85db378e8c47,
+        type: 3}
+      propertyPath: leftHandTransform
+      value: 
+      objectReference: {fileID: 8303796431165061795}
     - target: {fileID: 7865944738738660661, guid: 97794e8f32d9d574c8ed85db378e8c47,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -327,24 +357,14 @@ PrefabInstance:
       propertyPath: m_RootBone
       value: 
       objectReference: {fileID: 8303796431164978845}
-    - target: {fileID: 5690833133133257728, guid: 97794e8f32d9d574c8ed85db378e8c47,
-        type: 3}
-      propertyPath: defaultWeapon
-      value: 
-      objectReference: {fileID: 11400000, guid: e24424a2c9b854d44bdca41b0ac2ed0c,
-        type: 2}
-    - target: {fileID: 5690833133133257728, guid: 97794e8f32d9d574c8ed85db378e8c47,
-        type: 3}
-      propertyPath: rightHandTransform
-      value: 
-      objectReference: {fileID: 8303796431164988065}
-    - target: {fileID: 5690833133133257728, guid: 97794e8f32d9d574c8ed85db378e8c47,
-        type: 3}
-      propertyPath: leftHandTransform
-      value: 
-      objectReference: {fileID: 8303796431165061795}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97794e8f32d9d574c8ed85db378e8c47, type: 3}
+--- !u!4 &8303796431164978845 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7865944738741525851, guid: 97794e8f32d9d574c8ed85db378e8c47,
+    type: 3}
+  m_PrefabInstance: {fileID: 2167482440068901830}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8303796431164938647 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7865944738741498449, guid: 97794e8f32d9d574c8ed85db378e8c47,
@@ -561,9 +581,9 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2167482440068901830}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &8303796431164978845 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7865944738741525851, guid: 97794e8f32d9d574c8ed85db378e8c47,
+--- !u!1 &3565618819720395313 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3418213045117489655, guid: 97794e8f32d9d574c8ed85db378e8c47,
     type: 3}
   m_PrefabInstance: {fileID: 2167482440068901830}
   m_PrefabAsset: {fileID: 0}
