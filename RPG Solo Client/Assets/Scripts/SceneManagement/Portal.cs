@@ -27,7 +27,6 @@ namespace RPG.SceneManagement
                 StartCoroutine(Transition());
             }
         }
-
         private IEnumerator Transition()
         {
             if (sceneToLoad < 0)

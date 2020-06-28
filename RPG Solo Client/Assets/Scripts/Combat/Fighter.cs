@@ -3,10 +3,12 @@ using RPG.Movement;
 using RPG.Core;
 using RPG.Saving;
 using RPG.Resources;
+using RPG.Stats;
+using System.Collections.Generic;
 
 namespace RPG.Combat
 {
-    public class Fighter : MonoBehaviour, IAction, ISaveable
+    public class Fighter : MonoBehaviour, IAction, ISaveable, IModifierProvier
     {
         [SerializeField] float timeBetweenAttacks = 1f;
         [SerializeField] Transform rightHandTransform = null;
@@ -50,6 +52,11 @@ namespace RPG.Combat
             weapon.Spawn(rightHandTransform, leftHandTransform, animator);
         }
 
+        public Health GetTarget()
+        {
+            return target;
+        }
+
         private void AttackBehaviour()
         {   // 
             transform.LookAt(target.transform);
@@ -72,13 +79,15 @@ namespace RPG.Combat
         {
             if(target == null) { return; }
             
+
+            float damage = GetComponent<BaseStats>().GetStat(Stat.Damage);
             if (currentWeapon.HasProjectile())
             {
-                currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, target);
+                currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, target, gameObject, damage);
             }
             else
             {
-                target.TakeDamage(currentWeapon.GetDamage());
+                target.TakeDamage(gameObject, damage);
             }
         }
 
@@ -117,6 +126,21 @@ namespace RPG.Combat
             GetComponent<Animator>().ResetTrigger("attack");
             GetComponent<Animator>().SetTrigger("stopAttack");
         }
+        public IEnumerable<float> GetAdditiveModifier(Stat stat)
+        {
+            if(stat == Stat.Damage)
+            {
+                yield return currentWeapon.GetDamage();
+                //two weapon 2 yield return
+            }
+        }
+        public IEnumerable<float> GetPercentageModifiers(Stat stat)
+        {
+            if(stat == Stat.Damage)
+            {
+                yield return currentWeapon.GetPercentageBonus(); 
+            }
+        }
 
         public object CaptureState()
         {
@@ -129,5 +153,7 @@ namespace RPG.Combat
             Weapon weapon = UnityEngine.Resources.Load<Weapon>(weaponName);
             EquipWeapon(weapon);
         }
+
+        
     }
 }

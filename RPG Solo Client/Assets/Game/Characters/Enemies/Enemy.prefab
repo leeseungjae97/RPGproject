@@ -148,6 +148,11 @@ PrefabInstance:
       propertyPath: leftHandTransform
       value: 
       objectReference: {fileID: 7865944738741604709}
+    - target: {fileID: 488557239800501724, guid: 750e3c6876a501e42b5827ec7a3d24d1,
+        type: 3}
+      propertyPath: uniqueIdentifier
+      value: 4e4981ce-c9c7-4be9-aeab-82137b7223bb
+      objectReference: {fileID: 0}
     - target: {fileID: 1172905977, guid: 750e3c6876a501e42b5827ec7a3d24d1, type: 3}
       propertyPath: m_Speed
       value: 3
