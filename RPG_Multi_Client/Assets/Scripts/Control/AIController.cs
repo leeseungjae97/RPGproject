@@ -33,12 +33,13 @@ namespace RPG.Control
             health = GetComponent<Health>();
             mover = GetComponent<Mover>();
             player = GameObject.FindWithTag("Player");
-
             guardPosition = transform.position;
         }
 
         private void Update()
         {
+            
+            player = GameObject.FindWithTag("Player");
             if (health.IsDead()) return;
 
             if (InAttackRangeOfPlayer() && fighter.CanAttack(player))
