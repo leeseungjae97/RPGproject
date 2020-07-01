@@ -1,0 +1,8 @@
+CREATE TABLE m2_shop(
+shop_code INT UNSIGNED NOT NULL auto_increment,
+npc_code INT UNSIGNED NOT NULL,
+item_code INT UNSIGNED NOT NULL,
+`index` INT UNSIGNED NOT NULL,
+PRIMARY KEY (shop_code),
+FOREIGN KEY (item_code) REFERENCES m2_item(item_code)
+) ENGINE = INNODB DEFAULT CHARSET = UTF8

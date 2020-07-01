@@ -1,0 +1,5 @@
+CREATE TABLE npc(
+npc_code INT UNSIGNED NOT NULL auto_increment,
+npc_name INT UNSIGNED NOT NULL,
+PRIMARY KEY (npc_code)
+) ENGINE = INNODB DEFAULT CHARSET = utf8

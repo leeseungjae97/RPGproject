@@ -1,0 +1,7 @@
+CREATE TABLE `user` (
+  `user_code` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL,
+  `totExp` int(10) unsigned NOT NULL,
+  `money` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`user_code`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8

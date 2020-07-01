@@ -1,0 +1,8 @@
+CREATE TABLE m2_userInParty(
+userInParty_code INT UNSIGNED NOT NULL auto_increment,
+user_code INT UNSIGNED NOT NULL,
+party_code INT UNSIGNED NOT NULL,
+PRIMARY KEY (userInParty_code),
+FOREIGN KEY (user_code) REFERENCES m2_user(user_code),
+FOREIGN KEY (party_code) REFERENCES m2_party(party_code)
+) ENGINE = INNODB DEFAULT CHARSET = UTF8

@@ -1,0 +1,22 @@
+CREATE TABLE m2_equipment (
+Equipment_code INT UNSIGNED NOT NULL,
+user_code INT UNSIGNED NOT NULL,
+head_item_code INT UNSIGNED NOT NULL,
+weapon_item_code INT UNSIGNED NOT NULL,
+shield_item_code INT UNSIGNED NOT NULL,
+shoes_item_code INT UNSIGNED NOT NULL,
+armor_item_code INT UNSIGNED NOT NULL,
+accessories_item_code INT UNSIGNED NOT NULL,
+gauntlets_item_code INT UNSIGNED NOT NULL,
+bottomArmor_item_code INT UNSIGNED NOT NULL,
+PRIMARY KEY(Equipment_code),
+FOREIGN KEY(user_code) REFERENCES m2_user(user_code),
+FOREIGN KEY(head_item_code) REFERENCES m2_item(item_code),
+FOREIGN KEY(weapon_item_code) REFERENCES m2_item(item_code),
+FOREIGN KEY(shield_item_code) REFERENCES m2_item(item_code),
+FOREIGN KEY(shoes_item_code) REFERENCES m2_item(item_code),
+FOREIGN KEY(armor_item_code) REFERENCES m2_item(item_code),
+FOREIGN KEY(accessories_item_code) REFERENCES m2_item(item_code),
+FOREIGN KEY(gauntlets_item_code) REFERENCES m2_item(item_code),
+FOREIGN KEY(bottomArmor_item_code) REFERENCES m2_item(item_code)
+)ENGINE = INNODB DEFAULT CHARSET = UTF8

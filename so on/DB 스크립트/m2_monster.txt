@@ -1,0 +1,10 @@
+CREATE TABLE m2_monster(
+Monster_code INT UNSIGNED NOT NULL auto_increment,
+drop_item_code INT UNSIGNED NOT NULL,
+drop_exp INT UNSIGNED NOT NULL,
+damage INT UNSIGNED NOT NULL,
+defense INT UNSIGNED NOT NULL,
+hp INT UNSIGNED NOT NULL,
+PRIMARY KEY (Monster_code),
+FOREIGN KEY (drop_item_code) REFERENCES m2_item(item_code)
+) ENGINE = INNODB DEFAULT CHARSET = UTF8
