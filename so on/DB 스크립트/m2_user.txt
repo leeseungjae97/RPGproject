@@ -1,7 +1,8 @@
-CREATE TABLE `user` (
+CREATE TABLE `m2_user` (
   `user_code` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `id` int(10) unsigned NOT NULL,
-  `totExp` int(10) unsigned NOT NULL,
-  `money` int(10) unsigned NOT NULL,
+  `password` int(10) unsigned NOT NULL,
+  `totExp` int(10) unsigned NOT NULL DEFAULT '0',
+  `money` int(10) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`user_code`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8
