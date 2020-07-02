@@ -23,12 +23,11 @@ namespace RPG.Combat
 
         private void Pickup(GameObject subject)
         {
-            if(weapon != null)
+            if (weapon != null)
             {
                 subject.GetComponent<Fighter>().EquipWeapon(weapon);
             }
-
-            if(healthToRestore > 0)
+            if (healthToRestore > 0)
             {
                 subject.GetComponent<Health>().Heal(healthToRestore);
             }
@@ -53,7 +52,7 @@ namespace RPG.Combat
 
         public bool HandleRaycast(PlayerController callingController)
         {
-            if(Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0))
             {
                 Pickup(callingController.gameObject);
             }

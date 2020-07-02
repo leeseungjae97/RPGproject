@@ -23,6 +23,7 @@ namespace RPG.Combat
             {
                 callingController.GetComponent<Fighter>().Attack(gameObject);
             }
+
             return true;
         }
     }

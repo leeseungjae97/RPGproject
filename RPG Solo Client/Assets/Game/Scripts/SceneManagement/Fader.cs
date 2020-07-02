@@ -19,28 +19,25 @@ namespace RPG.SceneManagement
 
         public Coroutine FadeOut(float time)
         {
-            // Cancel running coroutines
-            //  Run fadeout coroutine
             return Fade(1, time);
-            // while (canvasGroup.alpha < 1)
-            // {
-            //     canvasGroup.alpha += Time.deltaTime / time;
-            //     yield return null;
-            // }
         }
-        public Coroutine FadeIn(float time) {
+
+        public Coroutine FadeIn(float time)
+        {
             return Fade(0, time);
         }
+
         public Coroutine Fade(float target, float time)
         {
-            if(currentActiveFade != null) 
+            if (currentActiveFade != null)
             {
                 StopCoroutine(currentActiveFade);
             }
             currentActiveFade = StartCoroutine(FadeRoutine(target, time));
             return currentActiveFade;
         }
-         private IEnumerator FadeRoutine(float target, float time)
+
+        private IEnumerator FadeRoutine(float target, float time)
         {
             while (!Mathf.Approximately(canvasGroup.alpha, target))
             {
