@@ -1,0 +1,6 @@
+﻿  server.c
+c:\server_youngrea\project3\server.c(16): warning C4133: '함수': 'LPSTR'과(와) 'LPWSTR' 사이의 형식이 호환되지 않습니다.
+c:\server_youngrea\project3\server.c(17): warning C4133: '함수': 'LPCSTR'과(와) 'LPCWSTR' 사이의 형식이 호환되지 않습니다.
+c:\server_youngrea\project3\server.c(17): warning C4133: '함수': 'const char *'과(와) 'LPCWSTR' 사이의 형식이 호환되지 않습니다.
+c:\server_youngrea\project3\server.c(84): warning C4101: 'msg' :참조되지 않은 지역 변수입니다.
+  Project3.vcxproj -> C:\server_youngRea\x64\Debug\Project3.exe

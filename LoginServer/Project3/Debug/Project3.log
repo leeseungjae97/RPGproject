@@ -1,0 +1,5 @@
+﻿  server.c
+C:\Users\rea21\Desktop\Project3\Project3\server.c(34,25): warning C4133: '함수': 'LPSTR'과(와) 'LPWSTR' 사이의 형식이 호환되지 않습니다.
+C:\Users\rea21\Desktop\Project3\Project3\server.c(35,38): warning C4133: '함수': 'LPCSTR'과(와) 'LPCWSTR' 사이의 형식이 호환되지 않습니다.
+C:\Users\rea21\Desktop\Project3\Project3\server.c(35,43): warning C4133: '함수': 'const char *'과(와) 'LPCWSTR' 사이의 형식이 호환되지 않습니다.
+  Project3.vcxproj -> C:\Users\rea21\Desktop\Project3\Debug\Project3.exe
