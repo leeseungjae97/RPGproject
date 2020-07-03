@@ -24,6 +24,7 @@ namespace GameDevTV.UI.Inventories
        
         private void Awake() 
         {
+            print("equiplocation : " + equipLocation);
             var player = GameObject.FindGameObjectWithTag("Player");
             playerEquipment = player.GetComponent<Equipment>();
             playerEquipment.equipmentUpdated += RedrawUI;

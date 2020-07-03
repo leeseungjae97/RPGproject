@@ -110,6 +110,10 @@
      <Compile Include="Assets\Game\Scripts\Core\DestroyAfterEffect.cs" />
      <Compile Include="Assets\Game\Scripts\Core\FollowCamera.cs" />
      <Compile Include="Assets\Game\Scripts\Core\IAction.cs" />
+     <Compile Include="Assets\Game\Scripts\Inventories\DropLibrary.cs" />
+     <Compile Include="Assets\Game\Scripts\Inventories\RandomDropper.cs" />
+     <Compile Include="Assets\Game\Scripts\Inventories\StatsEquipableItem.cs" />
+     <Compile Include="Assets\Game\Scripts\Inventories\StatsEquipment.cs" />
      <Compile Include="Assets\Game\Scripts\Movement\Mover.cs" />
      <Compile Include="Assets\Game\Scripts\Saving\ISaveable.cs" />
      <Compile Include="Assets\Game\Scripts\Saving\SaveableEntity.cs" />

@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 3143479978493496385}
   - component: {fileID: 5876980072796724094}
   - component: {fileID: 739325618006113824}
+  - component: {fileID: 1296137906195568505}
+  - component: {fileID: 970168902261465438}
   m_Layer: 5
   m_Name: Equipment_slot
   m_TagString: Untagged
@@ -66,7 +68,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: a2460e188fc1efb418ac53fa2715c6e7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4c438a3604a96dd4d8990cc11b424f42, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -75,6 +77,34 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!114 &1296137906195568505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3108684818865479576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c58a7a667728d0342a09593ddb800bfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 8967529117509036210}
+  equipLocation: 5
+--- !u!114 &970168902261465438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3108684818865479576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cc4daf13a8e5d04a9dfefec08811e16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltipPrefab: {fileID: 7806828991970778876, guid: 18317d2f670536643b7e5d23a9c4ef20,
+    type: 3}
 --- !u!1 &4602185342274084587
 GameObject:
   m_ObjectHideFlags: 0
@@ -87,6 +117,8 @@ GameObject:
   - component: {fileID: 6542610120940121673}
   - component: {fileID: 1288265262138958060}
   - component: {fileID: 1448942969173240216}
+  - component: {fileID: 7869829905587416435}
+  - component: {fileID: 8967529117509036210}
   m_Layer: 5
   m_Name: item
   m_TagString: Untagged
@@ -120,7 +152,7 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4602185342274084587}
-  m_CullTransparentMesh: 1
+  m_CullTransparentMesh: 0
 --- !u!225 &1288265262138958060
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -162,3 +194,29 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!114 &7869829905587416435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4602185342274084587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c02b7f87dd2b1746b0acd2cf9af593c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8967529117509036210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4602185342274084587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 493934aefc2d7c9469174527fc9bf167, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textContainer: {fileID: 0}
+  itemNumber: {fileID: 0}
