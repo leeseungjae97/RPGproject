@@ -1,0 +1,7 @@
+﻿  server.c
+C:\Users\rea21\Desktop\RPG_Server\Project3\server.c(18,162): warning C4133: '함수': 'LPSTR'과(와) 'LPWSTR' 사이의 형식이 호환되지 않습니다.
+C:\Users\rea21\Desktop\RPG_Server\Project3\server.c(19,38): warning C4133: '함수': 'LPCSTR'과(와) 'LPCWSTR' 사이의 형식이 호환되지 않습니다.
+C:\Users\rea21\Desktop\RPG_Server\Project3\server.c(19,43): warning C4133: '함수': 'const char *'과(와) 'LPCWSTR' 사이의 형식이 호환되지 않습니다.
+C:\Users\rea21\Desktop\RPG_Server\Project3\server.c(92,10): warning C4101: 'msg' :참조되지 않은 지역 변수입니다.
+C:\Users\rea21\Desktop\RPG_Server\Project3\server.c(97,16): warning C4101: 'party' :참조되지 않은 지역 변수입니다.
+  Project3.vcxproj -> C:\Users\rea21\Desktop\RPG_Server\Debug\Project3.exe
