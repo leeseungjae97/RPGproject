@@ -94,6 +94,7 @@ unsigned WINAPI HandleClient(void* arg) {
 	char msg[BUF_SIZE];
 	int k = 1;
 	char query[BUFSIZ] = "";
+	int row, col;
 	while ((strLen = recvn(clientSock, (char*)&type, sizeof(int), 0)) != 0) { //클라이언트로부터 메시지를 받을때까지 기다린다.
 	
 		RecvPoint recvPoint;
@@ -145,6 +146,21 @@ unsigned WINAPI HandleClient(void* arg) {
 				mInfo.id = MAXINT;
 				mInfo.password = MAXINT;
 			}
+			else {
+				LOGIN(query, mInfo);
+				if (mysql_query(q.conn, query) != 0)   //show변수를 query에 넣어준것이죠. 즉, 실행한거죠   
+				{
+					printf("query fail; err=%s\n", mysql_error(q.conn));
+					//만약 에러가 생겼을 때 다음을 출력하는거랍니다.  
+					DestroyConnection(q.conn);
+					return -1;
+				}
+				printf("%d", mysql_affected_rows(q.conn));
+				if (mysql_affected_rows(q.conn) == 0) {
+					mInfo.id = MININT;
+					mInfo.password = MININT;
+				}
+			}
 			DestroyConnection(q.conn);
 			smInfo = MemInfoToSendMemInfo(LOGIN, mInfo);
 			send(*(SOCKET*)arg, (char*)&smInfo, sizeof(smInfo), 0);
@@ -186,7 +202,7 @@ unsigned WINAPI HandleClient(void* arg) {
 		case ITEM:
 			
 			q = getConnection();
-			int newBuf[][BUFSIZ] = {0,};
+			
 			GETITEM(query);
 			if (mysql_query(q.conn, query) != 0)   //show변수를 query에 넣어준것이죠. 즉, 실행한거죠   
 			{
@@ -195,26 +211,204 @@ unsigned WINAPI HandleClient(void* arg) {
 				DestroyConnection(q.conn);
 				return -1;
 			}
-			q.res = mysql_store_result(q.conn);
+			q.res = mysql_store_result(q.conn); //쿼리 문의 결과 담기
 
-			int count = mysql_num_rows(q.res);
-			int k = 0;
-			send(*(SOCKET*)arg, (char*)&count, sizeof(count), 0);
+			row = mysql_num_rows(q.res); //튜플의 갯수
+			col = mysql_num_fields(q.res);
+			int ** ItemBuf = malloc(sizeof(int *)*col);
+			for (int k = 0;k < col; k++) {
+				ItemBuf[k] = malloc(sizeof(int) * row); //쿼리문을 담을 배열 선언
+			}
+			k = 0;
+			send(*(SOCKET*)arg, (char*)&row, sizeof(row), 0);
 			while ((q.row = mysql_fetch_row(q.res)) != NULL) {
-				printf("%s %s %s %s %s %s\n", q.row[0],q.row[1], q.row[2], q.row[3], q.row[4], q.row[5] );
-				newBuf[1] = { 2,2,2,2,2,2 };
-				newBuf[k] = { atoi(q.row[0]),atoi(q.row[1]),atoi(q.row[2]),atoi(q.row[3]),atoi(q.row[4]),atoi(q.row[5]) };
-				send(*(SOCKET*)arg, (char*)&newBuf, sizeof(newBuf), 0);
+				for (int x = 0;x < col;x++) {
+					ItemBuf[k][x] = atoi(q.row[x]);
+				}
+				send(*(SOCKET*)arg, (char*)(ItemBuf[k]), sizeof(int)* col, 0);
 				k++;
 			}
-			
-			
-			
-			mysql_free_result(q.res);
-
-			break;
 		
+			mysql_free_result(q.res);
+			free(ItemBuf);
+			break;
+
+		case LEVEL:
+
+			q = getConnection();
+
+			GETLEVEL(query);
+			if (mysql_query(q.conn, query) != 0)   //show변수를 query에 넣어준것이죠. 즉, 실행한거죠   
+			{
+				printf("query fail; err=%s\n", mysql_error(q.conn));
+				//만약 에러가 생겼을 때 다음을 출력하는거랍니다.  
+				DestroyConnection(q.conn);
+				return -1;
+			}
+			q.res = mysql_store_result(q.conn); //쿼리 문의 결과 담기
+
+			row = mysql_num_rows(q.res); //튜플의 갯수
+			col = mysql_num_fields(q.res);
+			int ** LevelBuf = malloc(sizeof(int *)*col);
+			for (int k = 0;k < col;k++) {
+				LevelBuf[k] = malloc(sizeof(int) * row); //쿼리문을 담을 배열 선언
+			}
+			k = 0;
+			send(*(SOCKET*)arg, (char *)&type, sizeof(int), 0);
+			send(*(SOCKET*)arg, (char*)&row, sizeof(row), 0);
+			while ((q.row = mysql_fetch_row(q.res)) != NULL) {
+				for (int x = 0;x < col;x++) {
+					LevelBuf[k][x] = atoi(q.row[x]);
+				}
+				send(*(SOCKET*)arg, (char*)(LevelBuf[k]), sizeof(int) * col, 0);
+				k++;
+			}
+
+			mysql_free_result(q.res);
+			free(LevelBuf);
+			break;
+
+		case SHOP:
+			q = getConnection();
+
+			GETSHOP(query);
+			if (mysql_query(q.conn, query) != 0)   //show변수를 query에 넣어준것이죠. 즉, 실행한거죠   
+			{
+				printf("query fail; err=%s\n", mysql_error(q.conn));
+				//만약 에러가 생겼을 때 다음을 출력하는거랍니다.  
+				DestroyConnection(q.conn);
+				return -1;
+			}
+			q.res = mysql_store_result(q.conn); //쿼리 문의 결과 담기
+
+			row = mysql_num_rows(q.res); //튜플의 갯수
+			col = mysql_num_fields(q.res);
+			int ** ShopBuf = malloc(sizeof(int *)*col);
+			for (int k = 0;k < col;k++) {
+				ShopBuf[k] = malloc(sizeof(int) * row); //쿼리문을 담을 배열 선언
+			}
+			k = 0;
+			send(*(SOCKET*)arg, (char *)&type, sizeof(int), 0);
+			send(*(SOCKET*)arg, (char*)&row, sizeof(row), 0);
+			while ((q.row = mysql_fetch_row(q.res)) != NULL) {
+				for (int x = 0;x < col;x++) {
+					ShopBuf[k][x] = atoi(q.row[x]);
+				}
+				send(*(SOCKET*)arg, (char*)(ShopBuf[k]), sizeof(int) * col, 0);
+				k++;
+			}
+
+			mysql_free_result(q.res);
+			free(ShopBuf);
+			break;
+		case MONSTER:
+			q = getConnection();
+
+			GETMONSTER(query);
+			if (mysql_query(q.conn, query) != 0)   //show변수를 query에 넣어준것이죠. 즉, 실행한거죠   
+			{
+				printf("query fail; err=%s\n", mysql_error(q.conn));
+				//만약 에러가 생겼을 때 다음을 출력하는거랍니다.  
+				DestroyConnection(q.conn);
+				return -1;
+			}
+			q.res = mysql_store_result(q.conn); //쿼리 문의 결과 담기
+
+			row = mysql_num_rows(q.res); //튜플의 갯수
+			col = mysql_num_fields(q.res);
+			int ** MonsterBuf = malloc(sizeof(int *)*col);
+			for (int k = 0;k < col;k++) {
+				MonsterBuf[k] = malloc(sizeof(int) * row); //쿼리문을 담을 배열 선언
+			}
+			k = 0;
+			send(*(SOCKET*)arg, (char *)&type, sizeof(int), 0);
+			send(*(SOCKET*)arg, (char*)&row, sizeof(row), 0);
+			while ((q.row = mysql_fetch_row(q.res)) != NULL) {
+				for (int x = 0;x < col;x++) {
+					MonsterBuf[k][x] = atoi(q.row[x]);
+				}
+				send(*(SOCKET*)arg, (char*)(MonsterBuf[k]), sizeof(int) * col, 0);
+				k++;
+			}
+
+			mysql_free_result(q.res);
+			free(MonsterBuf);
+			break;
+		case USER:
+			q = getConnection();
+
+			GETUSER(query);
+			if (mysql_query(q.conn, query) != 0)   //show변수를 query에 넣어준것이죠. 즉, 실행한거죠   
+			{
+				printf("query fail; err=%s\n", mysql_error(q.conn));
+				//만약 에러가 생겼을 때 다음을 출력하는거랍니다.  
+				DestroyConnection(q.conn);
+				return -1;
+			}
+			q.res = mysql_store_result(q.conn); //쿼리 문의 결과 담기
+
+			row = mysql_num_rows(q.res); //튜플의 갯수
+			col = mysql_num_fields(q.res);
+			printf("%d %d", row, col);
+			int ** UserBuf = malloc(sizeof(int *)*col);
+			for (int k = 0;k < col;k++) {
+				UserBuf[k] = malloc(sizeof(int) * row); //쿼리문을 담을 배열 선언
+			}
+			k = 0;
+			send(*(SOCKET*)arg, (char *)&type, sizeof(int), 0);
+			send(*(SOCKET*)arg, (char*)&row, sizeof(row), 0);
+			while ((q.row = mysql_fetch_row(q.res)) != NULL) {
+				for (int x = 0;x < col;x++) {
+					UserBuf[x][k] = atoi(q.row[x]);
+					printf("%d %d ", x, UserBuf[x][k]);
+					
+				}
+				printf("\n");
+				send(*(SOCKET*)arg, (char*)(UserBuf[col-1]), sizeof(int) * col, 0);
+				k++;
+			}
+
+			mysql_free_result(q.res);
+			free(UserBuf);
+			break;
+
+		case EQUIPMENT:
+			q = getConnection();
+
+			GETEQUIPMENT(query);
+			if (mysql_query(q.conn, query) != 0)   //show변수를 query에 넣어준것이죠. 즉, 실행한거죠   
+			{
+				printf("query fail; err=%s\n", mysql_error(q.conn));
+				//만약 에러가 생겼을 때 다음을 출력하는거랍니다.  
+				DestroyConnection(q.conn);
+				return -1;
+			}
+			q.res = mysql_store_result(q.conn); //쿼리 문의 결과 담기
+
+			row = mysql_num_rows(q.res); //튜플의 갯수
+			col = mysql_num_fields(q.res);
+			int ** EquipmentBuf = malloc(sizeof(int *)*col);
+			for (int k = 0;k < col;k++) {
+				EquipmentBuf[k] = malloc(sizeof(int) * row); //쿼리문을 담을 배열 선언
+			}
+			k = 0;
+			send(*(SOCKET*)arg, (char *)&type, sizeof(int), 0);
+			send(*(SOCKET*)arg, (char*)&row, sizeof(row), 0);
+			while ((q.row = mysql_fetch_row(q.res)) != NULL) {
+				for (int x = 0;x < col;x++) {
+					EquipmentBuf[k][x] = atoi(q.row[x]);
+				}
+				send(*(SOCKET*)arg, (char*)(EquipmentBuf[k]), sizeof(int) * col, 0);
+				k++;
+			}
+
+			mysql_free_result(q.res);
+			free(EquipmentBuf);
+			break;
 		}
+		
+	
+
 	}
 
 
