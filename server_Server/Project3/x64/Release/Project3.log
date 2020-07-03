@@ -1,0 +1,11 @@
+﻿  member.c
+  query.c
+C:\Users\rea21\Desktop\RPG_Server\Project3\query.c(2,10): fatal error C1083: 포함 파일을 열 수 없습니다. 'Item.h': No such file or directory
+  server.c
+C:\Users\rea21\Desktop\RPG_Server\Project3\server.c(19,162): warning C4133: '함수': 'LPSTR'과(와) 'LPWSTR' 사이의 형식이 호환되지 않습니다.
+C:\Users\rea21\Desktop\RPG_Server\Project3\server.c(20,38): warning C4133: '함수': 'LPCSTR'과(와) 'LPCWSTR' 사이의 형식이 호환되지 않습니다.
+C:\Users\rea21\Desktop\RPG_Server\Project3\server.c(20,43): warning C4133: '함수': 'const char *'과(와) 'LPCWSTR' 사이의 형식이 호환되지 않습니다.
+C:\Users\rea21\Desktop\RPG_Server\Project3\server.c(93,10): warning C4101: 'msg' :참조되지 않은 지역 변수입니다.
+C:\Users\rea21\Desktop\RPG_Server\Project3\server.c(98,16): warning C4101: 'party' :참조되지 않은 지역 변수입니다.
+  test.c
+c1 : fatal error C1083: 소스 파일을 열 수 없습니다. 'test.c': No such file or directory
