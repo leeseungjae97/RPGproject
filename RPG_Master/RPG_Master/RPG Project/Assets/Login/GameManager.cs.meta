@@ -1,0 +1,32 @@
+fileFormatVersion: 2
+guid: 8933da72eb3cde24c8f51d1a0d963101
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - IDInputField: {fileID: 6474381246681967200, guid: 93db3dcbd2d007d4185710e2610de7f9,
+      type: 3}
+  - PassInputField: {fileID: 3837969124455244879, guid: 2fdd02243fa01e446aedfc1c13e447fc,
+      type: 3}
+  - New_IDInputField: {fileID: 6212641948498339967, guid: 2cb8604f2d1466143bff05488f2f9dbd,
+      type: 3}
+  - New_PassInputField: {fileID: 1618345059115140384, guid: 35aed5bc4b21b394b89e727fa66b3f95,
+      type: 3}
+  - New_PassInputFieldDup: {fileID: 2013406782975733589, guid: 4c53cc396030d944aa79e8de389f8e84,
+      type: 3}
+  - CreateAccountPannelObject: {fileID: 4476158011790787102, guid: a019188fd90e0654d8294454fa4c2d5d,
+      type: 3}
+  - CreateAccountButton: {fileID: 5341746606830224541, guid: aebae15a469faa948a0fe566057314db,
+      type: 3}
+  - MessagePannelObject: {fileID: 6138597462235043178, guid: 34300edd883adf349b2e96111998bbe1,
+      type: 3}
+  - Okay: {fileID: 1492512723718801829, guid: e250decd661d85f4ca49f347e83aac2b, type: 3}
+  - Cancel: {fileID: 4421030935038447989, guid: 85b013e667a3ab8439c0494f79bfbdbf,
+      type: 3}
+  - Message: {fileID: 7593323542774037137, guid: 690d10ea15dee2d439e53be3413b90d1,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
