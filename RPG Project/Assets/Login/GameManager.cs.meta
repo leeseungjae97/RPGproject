@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 8933da72eb3cde24c8f51d1a0d963101
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - IDInputField: {instanceID: 0}
+  - PassInputField: {instanceID: 0}
+  - New_IDInputField: {instanceID: 0}
+  - New_PassInputField: {instanceID: 0}
+  - New_PassInputFieldDup: {instanceID: 0}
+  - CreateAccountPannelObject: {instanceID: 0}
+  - CreateAccountButton: {instanceID: 0}
+  - MessagePannelObject: {instanceID: 0}
+  - Okay: {instanceID: 0}
+  - Cancel: {instanceID: 0}
+  - Message: {instanceID: 0}
+  - InGameCamera: {instanceID: 0}
+  - LoginCamera: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
